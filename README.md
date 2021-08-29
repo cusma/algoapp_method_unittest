@@ -76,11 +76,6 @@ tests on [ASA State Observer](https://github.com/cusma/asa_state_observer) app m
 
 </details>
 
-
-### App's Interface
-Reference docs: [ARC-4](https://github.com/jannotti/ARCs/blob/abi/ARCs/arc-0004.md)
-[...]
-
 ## Tips
 Use the `app_method_unittest` library with the [Sandbox](https://developer.algorand.org/articles/introducing-sandbox-20/)
 in `devMode` to speed up the testing process.
