@@ -7,7 +7,7 @@ utility library is a support to perform unit tests on Algorand App's methods cal
 
 #### Dependencies:
 - `py-algorand-sdk` [1.7.0](https://github.com/algorand/py-algorand-sdk/releases/tag/v1.7.0)
-- [`asa_state_observer_asc1`](https://github.com/cusma/asa_state_observer/blob/main/asa_state_observer_asc1.py) to run unit tests example.
+- [`asa_state_observer_asc1`](https://github.com/cusma/asa_state_observer/blob/main/asa_state_observer_asc1.py) to run [ASA State Observer](https://github.com/cusma/algoapp_method_unittest/blob/main/asa_state_observer_test.py) unit tests example.
 
 ## Unit Tests result example
 The `algoapp_method_unittest` has been used in this example to perform unit
