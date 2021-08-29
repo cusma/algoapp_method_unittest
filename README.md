@@ -1,6 +1,6 @@
 # AlgoApp Method Unit Test
 The [`algoapp_method_unittest`](https://github.com/cusma/algoapp_method_unittest/blob/main/algoapp_method_unittest.py) 
-utility library performs unit tests of Algorand App's methods call, verifying their expected behaviour.
+utility library is a support to perform unit tests on Algorand App's methods call, verifying their expected behaviour.
 
 - **Approval Unit Test**: testing a method call expecting App's approval.
 - **Rejection Unit Test**: testing a method call expecting App's rejection.
