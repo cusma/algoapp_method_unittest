@@ -9,9 +9,45 @@ utility library is a support to perform unit tests on Algorand App's methods cal
 - `py-algorand-sdk` [1.7.0](https://github.com/algorand/py-algorand-sdk/releases/tag/v1.7.0)
 - [`asa_state_observer_asc1`](https://github.com/cusma/asa_state_observer/blob/main/asa_state_observer_asc1.py) to run ASA State Observer [unit tests example](https://github.com/cusma/algoapp_method_unittest/blob/main/asa_state_observer_test.py).
 
+## Building Unit Tests
+Let's test the following ASA State Observer method:
+```json
+{
+  "name": "AsaAmountEq",
+  "desc": "Asserts that the targetAccount owns an amount of targetAsa equal to amt",
+  "args": [
+    { "name": "amt", "type": "uint64", "desc": "Asset amount" }
+  ],
+  "accounts" : [
+    { "name": "targetAccount" }
+  ],
+  "foreign-assets" : [
+    { "name": "targetAsa" }
+  ]
+}
+```
+
+**Precondition**: `targetAccount` owns an `amt` of `targetASA` equal to `1`.
+
+Given the previous precondition, we can build a proper App's method call, expecting an `Approval` as App's behaviour, and run an **Approval Unit Test** against it:
+
+```python
+approval_unit_test(
+    algod_client,
+    test_stats,
+    call_asa_state_observer(
+        method=METHOD_ASA_AMOUNT_EQ,
+        caller=deployer,
+        app_id=asa_state_observer_id,
+        asa_id=test_asa_id,
+        target=deployer,
+        amount=1
+    )
+)
+```
+
 ## Unit Tests result example
-The `algoapp_method_unittest` has been used in this example to perform unit
-tests on [ASA State Observer](https://github.com/cusma/asa_state_observer) app methods' behaviour.
+The `algoapp_method_unittest` has been used in this example to perform unit tests against all [ASA State Observer](https://github.com/cusma/asa_state_observer) app's methods behaviour.
 
 ### ASA State Observer Unit Tests example output
 ```
