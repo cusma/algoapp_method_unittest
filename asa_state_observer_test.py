@@ -10,7 +10,7 @@ from algosdk import mnemonic, util
 
 from algoapp_method_unittest import *
 
-from asa_state_observer_asc1 import (
+from asa_state_observer.asa_state_observer_asc1 import (
     compile_stateful,
     asa_state_observer,
     asa_state_observe_closeout_or_clear,
@@ -224,8 +224,8 @@ def call_asa_state_observer(
         method: str,
         caller: Account,
         app_id: int,
-        asa_id: int,
-        target: Account,
+        target_asa_id: int,
+        target_account: Account,
         amount: int = 0,
 ):
     params = get_params(algod_client)
@@ -251,8 +251,8 @@ def call_asa_state_observer(
         sp=params,
         index=app_id,
         app_args=args,
-        foreign_assets=[asa_id],
-        accounts=[target.address],
+        foreign_assets=[target_asa_id],
+        accounts=[target_account.address],
     )
     return sign(caller, test_txn)
 
@@ -284,8 +284,8 @@ def test():
             method=METHOD_ASA_OPTED_IN,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer
+            target_asa_id=test_asa_id,
+            target_account=deployer
         )
     )
 
@@ -296,8 +296,8 @@ def test():
             method=METHOD_ASA_AMOUNT_EQ,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=1
         )
     )
@@ -309,8 +309,8 @@ def test():
             method=METHOD_ASA_AMOUNT_GT,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=0
         )
     )
@@ -322,8 +322,8 @@ def test():
             method=METHOD_ASA_AMOUNT_GE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=0
         )
     )
@@ -335,8 +335,8 @@ def test():
             method=METHOD_ASA_AMOUNT_GE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=1
         )
     )
@@ -348,8 +348,8 @@ def test():
             method=METHOD_ASA_AMOUNT_LT,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=42
         )
     )
@@ -361,8 +361,8 @@ def test():
             method=METHOD_ASA_AMOUNT_LE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=42
         )
     )
@@ -374,8 +374,8 @@ def test():
             method=METHOD_ASA_AMOUNT_LE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=1
         )
     )
@@ -389,8 +389,8 @@ def test():
             method=METHOD_ASA_OPTED_IN,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=42,
-            target=deployer
+            target_asa_id=42,
+            target_account=deployer
         )
     )
 
@@ -401,8 +401,8 @@ def test():
             method=METHOD_ASA_AMOUNT_EQ,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=42
         )
     )
@@ -414,8 +414,8 @@ def test():
             method=METHOD_ASA_AMOUNT_GT,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=1
         )
     )
@@ -427,8 +427,8 @@ def test():
             method=METHOD_ASA_AMOUNT_GE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=42
         )
     )
@@ -440,8 +440,8 @@ def test():
             method=METHOD_ASA_AMOUNT_LT,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=1
         )
     )
@@ -453,8 +453,8 @@ def test():
             method=METHOD_ASA_AMOUNT_LE,
             caller=deployer,
             app_id=asa_state_observer_id,
-            asa_id=test_asa_id,
-            target=deployer,
+            target_asa_id=test_asa_id,
+            target_account=deployer,
             amount=0
         )
     )
