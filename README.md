@@ -27,7 +27,7 @@ Let's test the following ASA State Observer method:
 }
 ```
 
-**Precondition**: `targetAccount` owns an `amt` of `targetASA` equal to `1`.
+**Precondition**: `targetAccount` owns an `amt` of `targetAsa` equal to `1`.
 
 Given the previous precondition, we can build a proper App's method call, expecting an `Approval` as App's behaviour, and run an **Approval Unit Test** against it:
 
@@ -39,8 +39,8 @@ approval_unit_test(
         method=METHOD_ASA_AMOUNT_EQ,
         caller=deployer,
         app_id=asa_state_observer_id,
-        asa_id=test_asa_id,
-        target=deployer,
+        target_asa_id=test_asa_id,
+        target_account=deployer,
         amount=1
     )
 )
